@@ -1,4 +1,5 @@
 # Starter pipeline
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -24,3 +25,9 @@ steps:
     repository: 'revenue135268/cicd-demo'
     command: 'buildAndPush'
     Dockerfile: 'Docker/appdocker/Dockerfile'
+    
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'Kubernetes/k8deploy'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
