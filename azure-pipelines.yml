@@ -31,3 +31,14 @@ steps:
     PathtoPublish: 'Kubernetes/k8deploy'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+    MaxArtifactSize: 0
+
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Azure Resource Manager'
+    azureSubscriptionEndpoint: 'azure-connection'
+    azureResourceGroup: 'kubev4'
+    kubernetesCluster: 'kube-cicd-demo'
+    command: 
+    secretType: 'dockerRegistry'
+    containerRegistryType: 'Azure Container Registry'
